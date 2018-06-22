@@ -119,7 +119,7 @@ var correctAnswerDisplay = trivias[currentQuestion].choices[correctAnswer]
     $(".gif").html("<img src = 'assets/images/push.gif'>")
     incorrect++
     }else {
-    $(".response").html("<h3> You ran out of time </h3>")
+    $(".response").html("<h3> You ran out of time" + "<br>" + "Correct Answer : " + correctAnswerDisplay + "</h3>" )
     $(".gif").html("<img src = 'assets/images/miss.gif'>")
     }
 
