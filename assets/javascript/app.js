@@ -6,6 +6,8 @@ var responded = false;
 var currentQuestion= 0;
 var userAnswer;
 var score = 0;
+var correct = 0;
+var incorrect = 0;
 
 // Trivia questions 
 var trivias = [ 
@@ -54,7 +56,7 @@ var trivias = [
 //Stopwatch
 function stopWatch(){
     timeCount = 10;
-    $("#stopwatch").html("Time Remaining: " + timeCount + " seconds")
+    $("#stopwatch").html("<h2>Time Remaining: " + timeCount + " seconds </h2>")
     responded = true;
     time = setInterval(timer,1000)
 };
@@ -62,7 +64,7 @@ function stopWatch(){
 function timer (){
     if (timeCount >= 1){
     timeCount--
-    $("#stopwatch").html("Time Remaining: " + timeCount + " seconds")
+    $("#stopwatch").html("<h2>Time Remaining: " + timeCount + " seconds </h2>")
     }
   
     if (timeCount <= 0){
@@ -77,12 +79,13 @@ function postQuestion(){
 $(".response").empty()
 $(".question").empty()
 $(".choices").empty()
+$(".gif").empty()
 
-    $(".question").html(trivias[currentQuestion].question)
+    $(".question").html("<h3>" + trivias[currentQuestion].question + "</h3>")
    
     for (var i=0; i<4; i++){
         var list = $("<div>")
-        list.html(trivias[currentQuestion].choices[i])
+        list.html("<p>" + trivias[currentQuestion].choices[i] + "</P>")
         list.attr("data-answerindex", i)
         list.addClass("answer")
         $(".choices").append(list)
@@ -107,19 +110,24 @@ var correctAnswerDisplay = trivias[currentQuestion].choices[correctAnswer]
 
 
     if ( (userAnswer == correctAnswer) && (responded == true)) {
-    $(".response").html("You are correct")
+    $(".response").html("<h3>You are correct</h3>")
+    $(".gif").html("<img src = 'assets/images/goal.gif'>")
     score++
+    correct++
     }else if ((userAnswer !== correctAnswer) && (responded == true) ){
-    $(".response").html("You are Wrong" + "<br>" + "Correct Answer : " + correctAnswerDisplay) 
+    $(".response").html("<h3> You are Wrong" + "<br>" + "Correct Answer : " + correctAnswerDisplay + "</h3>") 
+    $(".gif").html("<img src = 'assets/images/push.gif'>")
+    incorrect++
     }else {
-    $(".response").html("You ran out of time")
+    $(".response").html("<h3> You ran out of time </h3>")
+    $(".gif").html("<img src = 'assets/images/miss.gif'>")
     }
 
 	if(currentQuestion == (trivias.length-1)){
-		setTimeout(displayScore, 1800)
+		setTimeout(displayScore, 3200)
 	} else{
 		currentQuestion++;
-		setTimeout(postQuestion, 1800);
+		setTimeout(postQuestion, 3200);
 	}	
 
 
@@ -133,7 +141,8 @@ function displayScore () {
     $(".choices").empty()
 
     $("#stopwatch").empty()
-    $(".end").html("End of trivia. " + "Your score: " + score + "/10" + "<br>" + "Restart Trivia?");
+    $(".end").html("<h3> End of trivia. " + "<br>" + "Your score: " + score + "/10" + "<br>" + "Correct: " + correct + "<br>" + "Incorrect: " + incorrect + "<br" + "Restart Trivia?</h3>");
+    $(".gif").html("<img src = 'assets/images/goal.gif'>")
     $("#start").show()
     
 }
@@ -159,4 +168,6 @@ $("#start").click(function(){
     started = true
     postQuestion()
 })
+
+
 

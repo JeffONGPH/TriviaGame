@@ -1,7 +1,30 @@
-.choices {
-    text-align: center
+
+body{
+    height:500px;
 }
 
-.stopwatch {
-    text-align: center
+h1 , .question , .answer ,  .response , #stopwatch, .end{
+    text-align: center;
+    margin:10px;
 }
+h1 {
+    margin-top: 200px;
+}
+
+#stopwatch {
+    color:red;
+}
+
+#start{
+  margin-left: 47%;    
+}
+
+.answer:hover{
+    background-color: aqua;
+}
+.answer{cursor:pointer;}
+
+.gif {
+    text-align: center;
+}
+
