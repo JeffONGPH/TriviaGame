@@ -158,6 +158,8 @@ $("#start").click(function(){
     currentQuestion= 0;
     userAnswer;
     score = 0;
+	correct = 0;
+	incorrect = 0;
 
     $(".response").empty()
     $(".question").empty()
