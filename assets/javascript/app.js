@@ -141,7 +141,7 @@ function displayScore () {
     $(".choices").empty()
 
     $("#stopwatch").empty()
-    $(".end").html("<h3> End of trivia. " + "<br>" + "Your score: " + score + "/10" + "<br>" + "Correct: " + correct + "<br>" + "Incorrect: " + incorrect + "<br" + "Restart Trivia?</h3>");
+    $(".end").html("<h3> End of trivia. " + "<br>" + "Your score: " + score + "/10" + "<br>" + "Correct: " + correct + "<br>" + "Incorrect: " + incorrect + "<br>" + "Restart Trivia?" + "</h3>");
     $(".gif").html("<img src = 'assets/images/goal.gif'>")
     $("#start").show()
     
