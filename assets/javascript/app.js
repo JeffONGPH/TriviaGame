@@ -127,7 +127,7 @@ var correctAnswerDisplay = trivias[currentQuestion].choices[correctAnswer]
 		setTimeout(displayScore, 3200)
 	} else{
 		currentQuestion++;
-		setTimeout(postQuestion, 3200);
+		setTimeout(postQuestion, 3500);
 	}	
 
 
